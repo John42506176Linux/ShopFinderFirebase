@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+          apiKey: "AIzaSyCDZjP3Fj0a-41FRfJAp_mpcIYeoynislg",
+          authDomain: "shopfinder-247721.firebaseapp.com",
+          databaseURL: "https://shopfinder-247721.firebaseio.com",
+          projectId: "shopfinder-247721",
+          storageBucket: "shopfinder-247721.appspot.com",
+          messagingSenderId: "687322586010",
+          appId: "1:687322586010:web:96268449727ae4b2"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  <script>
+    if (typeof firebase === 'undefined') {
+      const msg = "Please paste the Firebase initialization snippet into index.html. See https://console.firebase.google.com > Overview > Add Firebase to your web app.";
+      console.log(msg);
+      alert(msg);
+    }
+  </script>
+  <!-- [START gae_python37_auth_include_firebaseui] -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="/static/js/signup.js"></script>
+  <link type="text/css" rel="stylesheet" href="/static/css/signup.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <section id=header>
+      <h1>SHOP FINDER</h1>
+      <h2>A Community of Shoppers Finding One Item at a Time</h2>
+    </section>
+    <header>
+      <div class="vidcontainer">
+      <div></div>
+      <video class "video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="/static/images/NYC-Traffic.mp4" type="video/mp4">
+      </video>
+      <div>
+        <div class="d-flex h-100 text-center align-items-center">
+        </div>
+      </div>
+      </div>
+    </header>
+    <div class="container">
+    	<div class="d-flex justify-content-center h-100">
+    		<div class="card">
+    			<div class="card-header">
+    				<h3>Sign Up</h3>
+    			</div>
+    			<div class="card-body">
+    				<form id ="SignUp" >
+              <div class="input-group form-group">
+    						<div class="input-group-prepend">
+    							<span class="input-group-text"><i class="fas fa-user"></i></span>
+    						</div>
+    						<input type="text" class="form-control" name = "email" placeholder="Email">
+    					</div>
+    					<div class="input-group form-group">
+    						<div class="input-group-prepend">
+    							<span class="input-group-text"><i class="fas fa-user"></i></span>
+    						</div>
+    						<input type="text" class="form-control" name = "username" placeholder="username">
+    					</div>
+    					<div class="input-group form-group">
+    						<div class="input-group-prepend">
+    							<span class="input-group-text"><i class="fas fa-key"></i></span>
+    						</div>
+    						<input type="password" class="form-control" name = "password" placeholder="password">
+    					</div>
+                        <div class="input-group form-group">
+    						<div id="uploadimage" class="input-group-prepend">
+    							<span class="input-group-text"><i class="fas fa-key"></i></span>
+    						Upload Image:<input type="file" id="UserImage" name="UserImage" accept="image/gif, image/jpeg, image/png">
+                            </div>
+                        </div>
+                        {% if bad_login %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                          <strong>{{bad_response}}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        {% endif %}
+    					<div class="form-group">
+    						<input type="submit" value="Sign Up" class="btn float-right login_btn">
+    					</div>
+    				</form>
+    			</div>
+    			<div class="card-footer">
+    				<div class="d-flex justify-content-center links">
+    					Already have an account?<a href="/Login">Sign In</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </body>
+</html>

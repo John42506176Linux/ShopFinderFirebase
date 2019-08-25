@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <title>Datastore and Firebase Auth Example</title>
+
+  <!-- See https://github.com/firebase/firebaseui-web. -->
+  <!-- [START gae_python37_auth_init_firebase] -->
+  <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * http://console.firebase.google.com > Overview > Add Firebase to your web app.
+       ***************************************************************************************** -->
+  <!-- [END gae_python37_auth_init_firebase] -->
+
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+          apiKey: "AIzaSyCDZjP3Fj0a-41FRfJAp_mpcIYeoynislg",
+          authDomain: "shopfinder-247721.firebaseapp.com",
+          databaseURL: "https://shopfinder-247721.firebaseio.com",
+          projectId: "shopfinder-247721",
+          storageBucket: "shopfinder-247721.appspot.com",
+          messagingSenderId: "687322586010",
+          appId: "1:687322586010:web:96268449727ae4b2"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  <script>
+    if (typeof firebase === 'undefined') {
+      const msg = "Please paste the Firebase initialization snippet into index.html. See https://console.firebase.google.com > Overview > Add Firebase to your web app.";
+      console.log(msg);
+      alert(msg);
+    }
+  </script>
+  <!-- [START gae_python37_auth_include_firebaseui] -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.css">
+  <!-- [END gae_python37_auth_include_firebaseui] -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/signout.js') }}"></script>
+
+</head>
+<body>
+
+<!-- [START gae_python37_auth_firebase_html] -->
+<h1>Datastore and Firebase Auth Example</h1>
+
+<button type="button" id = "signout" class="btn btn-outline-primary">Sign out</button>
+
+<!-- [END gae_python37_auth_firebase_html] -->
+</body>
+</html>

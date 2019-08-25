@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+          apiKey: "AIzaSyCDZjP3Fj0a-41FRfJAp_mpcIYeoynislg",
+          authDomain: "shopfinder-247721.firebaseapp.com",
+          databaseURL: "https://shopfinder-247721.firebaseio.com",
+          projectId: "shopfinder-247721",
+          storageBucket: "shopfinder-247721.appspot.com",
+          messagingSenderId: "687322586010",
+          appId: "1:687322586010:web:96268449727ae4b2"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  <script>
+    if (typeof firebase === 'undefined') {
+      const msg = "Please paste the Firebase initialization snippet into index.html. See https://console.firebase.google.com > Overview > Add Firebase to your web app.";
+      console.log(msg);
+      alert(msg);
+    }
+  </script>
+  <!-- [START gae_python37_auth_include_firebaseui] -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/static/js/CommentLike.js" ></script>
+      <script type="text/javascript" src="/static/js/signout.js" ></script>
+     <title> Home Page</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+
+  </head>
+  <body>
+
+    <section id=header>
+      <h1>SHOP FINDER</h1>
+      <h2 id = "motto">A Community of Shoppers Finding One Item at a Time</h2>
+    </section>
+    <!-- <section id = "outerWrap"> -->
+      <div id = "navBar">
+        <a class = "navBar_options" href = "/aboutUs">About Us</a>
+        <a class = "navBar_options" href = "/allPosts">Explore</a>
+        <div>
+          <a id ="signout" class = "navBar_options" href = "#">Log Out</a>
+        </div>
+      </div>
+      </section>
+      <div class="videobox">
+      <header>
+        <div class="vidcontainer">
+        <div></div>
+          <video class ="video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="/static/images/NYC-Traffic.mp4" type="video/mp4">
+          </video>
+          <div>
+          <div class="d-flex h-100 text-center align-items-center">
+          </div>
+        </div>
+        </div>
+      </header>
+    <div id = "searchAndPost">
+    <div class=middle>
+      <div>
+        <h1 class = "homeSections">Search by Tag</h1>
+        <br>
+        <div class = "forms">
+          <form method="post" action = "/search-results">
+
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">Search!</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <h1 class = "homeSections">New Post</h1>
+        <br>
+        <div id = "uploadImage">
+          <form method="post" action = "/" enctype="multipart/form-data">
+            <label>
+              Upload Image
+              <input type="file" name="PostImage" accept="image/gif, image/jpeg, image/png">
+            </label><br/>
+            <label>
+              Tags:
+              <input  type="text" name="tag1" value="">
+              <input  type="text" name="tag2" value="">
+              <input  type="text" name="tag3" value="">
+            </label><br/>
+            <button type="submit">Post!</button>
+          </form>
+        </div>
+      </div>
+        <div>
+        <h1 class = "homeSections">Search By Image</h1>
+        <br>
+        <div id = "uploadImage">
+          <h3 >Search by File</h3>
+          <form method="post" action = "/SearchImage" enctype="multipart/form-data">
+              <label>
+              Image File:
+              <input type="file" name="SearchImage" accept="image/gif, image/jpeg, image/png">
+            </label><br/>
+            <button type="submit">Upload!</button>
+          </form>
+          <br>
+           <h3 >Search By Url</h3>
+          <form method="post" action="/SearchImage" >
+              <label>
+              Image URL:
+              <input type="text" name="SearchImageUrl" placeholder="Input Image url here">
+            </label><br/>
+            <button type="submit">Search!</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class = "pastpostscontainer">
+    <h1 class = "homeSections">Past Posts</h1>
+    <div class= "cardcontainer">
+    {% if all_posts !=  None %}
+      {% for post in all_posts %}
+        <div class = "card">
+          <img class="card-img-top" style = "width:398px" src = {{ post._data['image_url'] }}>
+          <div class="userbox">
+            <h1 class = "card-title">User: <span class="user-photo-container user-photo" style = "background-image:url({{ user_image_url }})"></span> </h1>
+          </div>
+          <div class="tags">
+          <p>Tags:</p>
+          <ul class = "card-text " >
+          {% for tag in post._data['tags'] %}
+            <span><li class = "card-text w3-tag w3-blue" style = "display:inline;float:left; list-style-type: none;margin-right:1rem"> #{{tag }} </li></span>
+          {% endfor %}
+          </ul>
+          </div>
+          <br>
+          <form method = "post" action = "/">
+              <input id = "Input{{ post.id }}"type="text" name="Comment" value="Post Comment here">
+              <button class="btn btn-primary" onclick = "CommentPost({{ post.id }})" type="submit">Post!</button>
+          </form>
+          {% if post._data['comments'] != None %}
+            {% for comment in post._data['comments'] %}
+              <div class="comments">
+              <p>User<span class="user-photo-container user-photo" style = "background-image:url({{ comment.get_user_record.photo_url }})"></span></p>
+              <p>{{ comment.content }} </p>
+              <p>Likes:{{ comment.likes }} </p>
+              </div>
+            {% endfor %}
+          {% endif %}
+          {% if user.displayname in post.get_users_liked %}
+
+              <h1 class = "card-text">
+                <svg class="heart" viewBox="0 0 32 29.6">
+                  <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+	                 c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+                </svg>
+                :{{ post._data['likes'] }}</h1>
+          {%  else %}
+             <form method = "post" action ="/">
+             <button type ="submit" class="btn btn-primary" id  = {{ post.id  }} onclick="LikePost({{ post.id }})" >Likes: {{ post._data['likes'] }} </button>
+              </form>
+          {%  endif %}
+      </div>
+      {% endfor %}
+    {% else %}
+      <h1> No Posts made yet </h1>
+    {% endif %}
+  </div>
+</div>
+    </body>
+</html>
